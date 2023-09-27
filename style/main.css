@@ -1,0 +1,10 @@
+@import url('./util/layout.css');
+@import url('./util/model.css');
+@import url('./util/elements.css');
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100%;
+}
