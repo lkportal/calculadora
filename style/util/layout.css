@@ -16,3 +16,11 @@
     padding-top: 10px;
     background-color: #D96EE6;
 }
+.conteinerList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    height: 100%;
+}
