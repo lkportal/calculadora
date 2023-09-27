@@ -1,0 +1,18 @@
+.conteinerCalculadora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px; 
+    height: 100%;  
+}
+.conteinerItens{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px #D96EE6;
+    padding: 5px;
+    padding-top: 10px;
+    background-color: #D96EE6;
+}

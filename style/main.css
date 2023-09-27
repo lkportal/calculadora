@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Croissant+One&display=swap');
 @import url('./util/layout.css');
 @import url('./util/model.css');
 @import url('./util/elements.css');
@@ -6,5 +7,7 @@
     margin: 0;
 }
 body{
-    height: 100%;
+   height: 100%;
+   background-color: #286096;
+   
 }
