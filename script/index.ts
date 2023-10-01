@@ -1,33 +1,66 @@
 
-const btn = document.querySelectorAll('button')
+const btn = document.querySelectorAll('button') 
 const visor = document.getElementById('visor') as HTMLInputElement
 const ptext = document.getElementById('p')
 const results = document.getElementById('n=') 
+const soma = document.getElementById('n+') as HTMLButtonElement
 let btns:string = ''
 let result:number;
-let numbs1:string[]
-let sum2:number;
+
+let numeros:number;
+let numero2:number;
+let caracteres:string;
+let nums:number[];
+let operadores:string|null = null;
+
 btn.forEach((element)=>{
     element.addEventListener('click',(ev:Event)=>{
        const {target} = ev 
        if(target){
         const dado1 = (target as HTMLButtonElement).textContent    
-         dado1? btns +=dado1:'erro'
-         if(dado1 == '+' ){
-            numbs1 = btns.split('')
-            btns = ''
-        }else if(dado1 == '='){
-            btns = ''
-        }
-       
-        results?.addEventListener('click',(event:Event)=>{
-             console.log(numbs1)
+        if(dado1){
+           btns += dado1;
+           numeros = parseFloat(btns)
           
-        })
-            
+        }
+
+     
+       }
+     
+      
+       
+       
+    
+    visor.value = btns.toString()
+})
+   
+
+})
 
 
-         visor.value = btns.toString()
+ soma.addEventListener('click',()=>{
+    
+    btns = ''
+    numero2 = numeros
+    result = numeros + numero2
+   
+   
+ })
+
+results?.addEventListener('click',()=>{
+    btns = ''
+
+     console.log(operadores)
+    console.log('numero1' , numeros)
+    console.log('numero2',numero2)
+    console.log(result)
+    if(numero2 !== null && result){
+        numeros = 0
+        numero2 =0;
+        result = 0
     }
+    visor.value = result.toString()
+    
 })
-})
+
+
