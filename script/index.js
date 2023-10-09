@@ -4,13 +4,15 @@ const visor = document.getElementById('visor');
 const ptext = document.getElementById('p');
 const results = document.getElementById('n=');
 const soma = document.getElementById('n+');
+const sub = document.getElementById('n-');
+const multiplicar = document.getElementById('nx');
+const dividir = document.getElementById('n/');
 let btns = '';
 let result;
+let operado;
 let numeros;
 let numero2;
-let caracteres;
-let nums;
-let operadores = null;
+const regex = /[^\W]/gi;
 btn.forEach((element) => {
     element.addEventListener('click', (ev) => {
         const { target } = ev;
@@ -25,20 +27,50 @@ btn.forEach((element) => {
     });
 });
 soma.addEventListener('click', () => {
-    btns = '';
+    if (result) {
+        numeros = result;
+    }
     numero2 = numeros;
-    result = numeros + numero2;
+    operado = btns;
+    btns = '';
+});
+sub.addEventListener('click', () => {
+    if (result) {
+        numeros = result;
+    }
+    numero2 = numeros;
+    operado = btns;
+    btns = '';
+});
+multiplicar.addEventListener('click', () => {
+    if (result) {
+        numeros = result;
+    }
+    numero2 = numeros;
+    operado = btns;
+    btns = '';
+});
+dividir.addEventListener('click', () => {
+    if (result) {
+        numeros = result;
+    }
+    numero2 = numeros;
+    operado = btns;
+    btns = '';
 });
 results === null || results === void 0 ? void 0 : results.addEventListener('click', () => {
-    btns = '';
-    console.log(operadores);
-    console.log('numero1', numeros);
-    console.log('numero2', numero2);
-    console.log(result);
-    if (numero2 !== null && result) {
-        numeros = 0;
-        numero2 = 0;
-        result = 0;
+    if (operado.includes('+')) {
+        result = numeros + numero2;
     }
+    else if (operado.includes('-')) {
+        numeros > numero2 ? result = numeros - numero2 : result = numero2 - numeros;
+    }
+    else if (operado.includes('x')) {
+        result = numero2 * numeros;
+    }
+    else if (operado.includes('/')) {
+        result = numero2 / numeros;
+    }
+    btns = '';
     visor.value = result.toString();
 });
