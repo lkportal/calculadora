@@ -14,7 +14,6 @@ let armazenandoAcumulador:number = 0
 let result:number;
 let numeros:number;
 let numero2:number;
-
 let char:string = ''
 
 
@@ -53,23 +52,32 @@ soma.addEventListener('click',()=>{
   
    if(btns.includes("+")){
      numeros = parseFloat(btns)
-     console.log(numeros,'vinda função +')
-     console.log(btns,'btns')
      btns = ''
      char = '+'
-   }else{
-    visor.value = ''
+      
    }
  })
 
  sub.addEventListener('click',()=>{
     if(btns.includes("-")){
         numeros = parseFloat(btns)
-        console.log(numeros,'vinda função -')
-        console.log(btns,'btns')
         btns = ''
         char = '-'
       }
+ })
+ multiplicar.addEventListener('click',()=>{
+   if(btns.includes("x")){
+      numeros = parseFloat(btns)
+      btns = ''
+      char = 'x'
+    }
+ })
+ dividir.addEventListener('click',()=>{
+   if(btns.includes("/")){
+      numeros = parseFloat(btns)
+      btns = ''
+      char = '/'
+    }
  })
 
 
@@ -81,25 +89,26 @@ soma.addEventListener('click',()=>{
 
 results?.addEventListener('click',()=>{
      if(btns.includes("=")){
-   
-
         visor.value = ''
-        if(char.includes('+') && btns.includes('')){
-            result= numero2 + numeros 
-            armazenandoAcumulador = result
-           // if(char.includes('+') || btns != '') {
-          //      console.log(armazenandoAcumulador)
-           //     result = armazenandoAcumulador + numero2
-           // } 
-        }else if(char.includes('-') && btns.includes('')){
-            result = numeros - numero2
-        }
+         if(char.includes('+') ){
+               result= numero2 + numeros 
+               armazenandoAcumulador = result
+               if(armazenandoAcumulador != result){
+                  result = armazenandoAcumulador + numero2
+               }               
+            }else if(char.includes('-') && btns.includes('')){
+                  result = numeros - numero2
+                  armazenandoAcumulador = result
+            }else if(char.includes('x') && btns.includes('')){
+               result = numeros * numero2
+               armazenandoAcumulador = result
+            }else if(char.includes('/') && btns.includes('')){
+               result = numeros / numero2
+               armazenandoAcumulador = result
+            }
      } 
      
-   console.log(numeros,'numero1')
-   console.log(numero2,'numero2')
-   console.log(result,'resultado')
-   btns = ''
+   
    visor.value = result.toString()
 })   
 
